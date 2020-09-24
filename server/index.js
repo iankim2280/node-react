@@ -13,7 +13,7 @@ const { PORT } = process.env;
 app.get("/", (req, res) => res.send("hello world"));
 
 app.get("/api/hello", (req, res) => {
-  res.send("hello from server");
+  res.send("hello from server!!");
 });
 
 // application/x-www-form-urlencoded
