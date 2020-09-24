@@ -9,9 +9,12 @@ import "./middlewares/db";
 dotenv.config();
 const app = express();
 const { PORT } = process.env;
-
 // when you open the localhost on browser
 app.get("/", (req, res) => res.send("hello world"));
+
+app.get("/api/hello", (req, res) => {
+  res.send("hello from server");
+});
 
 // application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
