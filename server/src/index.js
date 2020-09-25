@@ -13,7 +13,7 @@ const { PORT } = process.env;
 app.get("/", (req, res) => res.send("hello world"));
 
 app.get("/api/hello", (req, res) => {
-  res.send("hello from server!!");
+  res.send("Hello from server.");
 });
 
 // application/x-www-form-urlencoded
@@ -36,12 +36,12 @@ app.post("/api/users/signup", (req, res) => {
 });
 
 app.post("/api/users/login", (req, res) => {
-  // 1. 요청된 이메일을 데이터베이스에서 있는지 찾는다.
+  // 1. Find a user using this email
   User.findOne({ email: req.body.email }, (err, user) => {
     if (!user) {
       return res.json({
         loginSuccess: false,
-        message: "제공된 이메일에 해당하는 유저가 없습니다. ",
+        message: "There's no user using this email. ",
       });
     }
     // 2. 요청된 이메일이 데이터베이스에 있다면 비밀번호가 맞는지 확인.
@@ -49,7 +49,7 @@ app.post("/api/users/login", (req, res) => {
       if (!isMatch)
         return res.json({
           loginSuccess: false,
-          message: "비밀번호가 틀렸습니다.",
+          message: "Wrong password.",
         });
       // 3. if passwords are correct, generate token
       user.generateToken((err, user) => {

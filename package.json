@@ -1,35 +1,25 @@
 {
-  "name": "nodeapp",
+  "name": "node-react",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./server",
-    "backend": "nodemon --exec babel-node ./server",
+    "install": "yarn --cwd server && yarn --cwd client",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "frontend": "yarn start --prefix client",
-    "dev": "concurrently \"yarn backend\" \"yarn start --prefix client\""
+    "start": "concurrently \"yarn --cwd server dev\" \"yarn --cwd client start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iankim2280/node-react.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@babel/cli": "^7.11.6",
-    "@babel/core": "^7.11.6",
-    "@babel/node": "^7.10.5",
-    "@babel/preset-env": "^7.11.5",
-    "nodemon": "^2.0.4"
+  "bugs": {
+    "url": "https://github.com/iankim2280/node-react/issues"
   },
+  "homepage": "https://github.com/iankim2280/node-react#readme",
   "dependencies": {
-    "bcrypt": "^5.0.0",
-    "body-parser": "^1.19.0",
-    "concurrently": "^5.3.0",
-    "cookie-parser": "^1.4.5",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.6",
-    "react-router-dom": "^5.2.0"
+    "concurrently": "^5.3.0"
   }
 }
