@@ -1,16 +1,29 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect } from "react";
+// import React, { Component, useEffect, useState } from "react";
 import axios from "axios";
 
 const LandingPage = () => {
-  const [Name, setName] = useState("");
+  // const [Name, setName] = useState("");
   // using Hook
   useEffect(() => {
-    // axios.get("/api/hello").then((res) => console.log(res));
+    axios.get("/api/hello").then((res) => console.log(res));
     // console.log(res.data));
 
-    axios.get("/api/hello").then((res) => setName(res.data.name));
+    // axios.get("/api/hello").then((res) => setName(res.data.name));
   }, []);
-  return <div>Landing Page!!{name}</div>;
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        height: "100vh",
+      }}
+    >
+      Index Page
+    </div>
+  );
 };
 export default LandingPage;
 
