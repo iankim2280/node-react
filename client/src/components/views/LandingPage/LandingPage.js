@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 // import React, { Component, useEffect, useState } from "react";
 import axios from "axios";
 
-const LandingPage = () => {
+const LandingPage = (props) => {
   // const [Name, setName] = useState("");
   // using Hook
   useEffect(() => {
@@ -11,6 +11,13 @@ const LandingPage = () => {
 
     // axios.get("/api/hello").then((res) => setName(res.data.name));
   }, []);
+  const onClickHandler = () => {
+    axios.get("/api/users/logout").then((res) => {
+      if (res.data.success) {
+        props.history.push("/login");
+      } else alert("Failed to logout");
+    });
+  };
   return (
     <div
       style={{
@@ -21,7 +28,8 @@ const LandingPage = () => {
         height: "100vh",
       }}
     >
-      Index Page
+      <div>Index Page</div>
+      <button onClick={onClickHandler}>Logout</button>
     </div>
   );
 };
