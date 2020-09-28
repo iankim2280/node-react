@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 // import React, { Component, useEffect, useState } from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 const LandingPage = (props) => {
   // const [Name, setName] = useState("");
@@ -33,7 +34,7 @@ const LandingPage = (props) => {
     </div>
   );
 };
-export default LandingPage;
+export default withRouter(LandingPage);
 
 // // using class component
 // export default class LandingPage extends Component {
