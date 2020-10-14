@@ -8,3 +8,4 @@ module.exports = function (app) {
     })
   );
 };
+// npx browserslist --update-db

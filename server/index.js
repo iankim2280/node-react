@@ -6,9 +6,7 @@ import path from "path";
 import cors from "cors";
 
 import "./middlewares/db";
-dotenv.config();
 const app = express();
-const { PORT } = process.env;
 
 // when you open the localhost on browser
 app.get("/", (req, res) => res.send("hello world"));
@@ -27,8 +25,13 @@ app.use(cookieParser());
 
 app.use("/api/users", require("./routes/users"));
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on http://localhost:${PORT}`);
+
+app.listen(process.env.PORT || 5000, function () {
+  console.log(
+    "Express server listening on port %d in %s mode",
+    this.address().port,
+    app.settings.env
+  );
 });
 
 export default app;
